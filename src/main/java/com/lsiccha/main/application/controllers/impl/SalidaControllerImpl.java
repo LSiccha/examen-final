@@ -23,7 +23,6 @@ public class SalidaControllerImpl implements SalidaController {
     }
     @Override
     public ResponseEntity<Salida> create(Salida salida) {
-        log.error("Olaa");
         Salida saved = this.salidaService.save(salida);
         ResponseEntity<Salida> response = new ResponseEntity<>(saved, HttpStatus.CREATED);
         return response;
@@ -38,7 +37,6 @@ public class SalidaControllerImpl implements SalidaController {
 
     @Override
     public ResponseEntity<List<Salida>> getAll() {
-        log.error("Olaa All");
         List<Salida> fromDb = this.salidaService.getAll();
         ResponseEntity<List<Salida>> response = new ResponseEntity<>(fromDb, HttpStatus.OK);
         return response;
