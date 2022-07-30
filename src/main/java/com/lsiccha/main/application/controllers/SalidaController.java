@@ -8,18 +8,18 @@ import java.util.List;
 
 public interface SalidaController {
 
-    @RequestMapping(produces = {"application/json"}, method = RequestMethod.POST)
+    @PostMapping(produces = {"application/json"})
     ResponseEntity<Salida> create(@RequestBody Salida salida);
 
-    @RequestMapping(value="/{id}", produces = {"application/json"}, method = RequestMethod.GET)
+    @GetMapping(value="/{id}", produces = {"application/json"})
     ResponseEntity<Salida> getById(@PathVariable("id") Integer id);
 
-    @RequestMapping(produces = {"application/json"}, method = RequestMethod.GET)
+    @GetMapping(produces = {"application/json"})
     ResponseEntity<List<Salida>> getAll();
 
-    @RequestMapping(produces = {"application/json"}, method = RequestMethod.PUT)
+    @PutMapping(produces = {"application/json"})
     ResponseEntity<Salida> update(@RequestBody Salida salida);
 
-    @RequestMapping(value="/{id}", produces = {"application/json"}, method = RequestMethod.DELETE)
+    @DeleteMapping(value="/{id}", produces = {"application/json"})
     ResponseEntity<Void> delete(@PathVariable("id") Integer id);
 }
