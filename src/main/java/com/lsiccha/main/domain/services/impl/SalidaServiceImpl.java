@@ -1,5 +1,6 @@
 package com.lsiccha.main.domain.services.impl;
 
+import com.lsiccha.main.application.controllers.dto.SalidaDTO;
 import com.lsiccha.main.domain.model.Salida;
 import com.lsiccha.main.domain.repositories.SalidaRepository;
 import com.lsiccha.main.domain.services.SalidaService;
@@ -18,8 +19,16 @@ public class SalidaServiceImpl implements SalidaService {
         this.salidaRepository = salidaRepository;
     }
     @Override
-    public Salida save(Salida salida) {
-        return this.salidaRepository.create(salida);
+    public Salida save(SalidaDTO salida) {
+        Salida salidaToSave = new Salida();
+
+        salidaToSave.setId(salida.getId());
+        salidaToSave.setFechaSalida(salida.getFechaSalida());
+        salidaToSave.setHoraSalida(salida.getHoraSalida());
+        salidaToSave.setPlacaVehiculo(salida.getPlacaVehiculo());
+        salidaToSave.setChofer(salida.getChofer());
+
+        return this.salidaRepository.create(salidaToSave);
     }
 
     @Override
@@ -33,8 +42,16 @@ public class SalidaServiceImpl implements SalidaService {
     }
 
     @Override
-    public Salida update(Salida salida) {
-        return this.salidaRepository.update(salida);
+    public Salida update(SalidaDTO salida) {
+        Salida salidaToUpdate = new Salida();
+        
+        salidaToUpdate.setId(salida.getId());
+        salidaToUpdate.setFechaSalida(salida.getFechaSalida());
+        salidaToUpdate.setHoraSalida(salida.getHoraSalida());
+        salidaToUpdate.setPlacaVehiculo(salida.getPlacaVehiculo());
+        salidaToUpdate.setChofer(salida.getChofer());
+        
+        return this.salidaRepository.update(salidaToUpdate);
     }
 
     @Override

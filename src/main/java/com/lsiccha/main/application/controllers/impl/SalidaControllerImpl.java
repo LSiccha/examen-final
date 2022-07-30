@@ -1,6 +1,7 @@
 package com.lsiccha.main.application.controllers.impl;
 
 import com.lsiccha.main.application.controllers.SalidaController;
+import com.lsiccha.main.application.controllers.dto.SalidaDTO;
 import com.lsiccha.main.domain.model.Salida;
 import com.lsiccha.main.domain.services.SalidaService;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ public class SalidaControllerImpl implements SalidaController {
         this.salidaService = salidaService;
     }
     @Override
-    public ResponseEntity<Salida> create(Salida salida) {
+    public ResponseEntity<Salida> create(SalidaDTO salida) {
         Salida saved = this.salidaService.save(salida);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
@@ -40,7 +41,7 @@ public class SalidaControllerImpl implements SalidaController {
     }
 
     @Override
-    public ResponseEntity<Salida> update(Salida salida) {
+    public ResponseEntity<Salida> update(SalidaDTO salida) {
         Salida updated = this.salidaService.update(salida);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
