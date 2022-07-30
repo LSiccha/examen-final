@@ -1,4 +1,4 @@
-package com.lsiccha.main.application.controllers;
+package com.lsiccha.main.application.controllers.impl;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("")
-public class SimpleController {
+public class SalidaControllerImpl {
 
     @GetMapping
     public ResponseEntity<String> hello(){
