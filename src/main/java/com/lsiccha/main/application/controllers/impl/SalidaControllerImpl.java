@@ -3,6 +3,7 @@ package com.lsiccha.main.application.controllers.impl;
 import com.lsiccha.main.application.controllers.SalidaController;
 import com.lsiccha.main.domain.model.Salida;
 import com.lsiccha.main.domain.services.SalidaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping(path = "/salida")
+@Slf4j
 public class SalidaControllerImpl implements SalidaController {
 
     private final SalidaService salidaService;
@@ -21,6 +23,7 @@ public class SalidaControllerImpl implements SalidaController {
     }
     @Override
     public ResponseEntity<Salida> create(Salida salida) {
+        log.error("Olaa");
         Salida saved = this.salidaService.save(salida);
         ResponseEntity<Salida> response = new ResponseEntity<>(saved, HttpStatus.CREATED);
         return response;
@@ -35,6 +38,7 @@ public class SalidaControllerImpl implements SalidaController {
 
     @Override
     public ResponseEntity<List<Salida>> getAll() {
+        log.error("Olaa All");
         List<Salida> fromDb = this.salidaService.getAll();
         ResponseEntity<List<Salida>> response = new ResponseEntity<>(fromDb, HttpStatus.OK);
         return response;

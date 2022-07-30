@@ -1,6 +1,7 @@
 package com.lsiccha.main.domain.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,6 +21,7 @@ public class Salida {
     private LocalDate fechaSalida;
 
     @Column(name = "hora_salida")
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime horaSalida;
 
     @Column(name = "placa_vehiculo")
